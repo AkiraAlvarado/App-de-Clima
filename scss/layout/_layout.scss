@@ -1,0 +1,23 @@
+.l-container {
+   max-width     : $max-witdh;
+   padding-left  : 1.5rem;
+   padding-right : 1.5rem;
+   display       : flex;
+   flex-direction: column;
+   margin-left   : auto;
+   margin-right  : auto;
+   height        : 100%;
+}
+
+.center__content {
+   text-align: center;
+}
+
+.center__item {
+   margin: 0 auto ; 
+}
+
+.secction__separator {
+   margin-top   : var(--section-separator);
+}
+

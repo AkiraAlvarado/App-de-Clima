@@ -1,0 +1,65 @@
+:root{
+   --blue-400:#879FFD;
+   --blue-600: #4C76EE;
+   --white-100: #FFFFFF;
+   --gray-400: #928C8C;
+   --gray-800: #46494B;
+   --black-100: #2c2c2c;
+}
+
+$breakpoints : (
+   l:1024px,
+   s : 768px,
+   xs: 472px);
+
+   
+$border-b-radius: 32px;
+$border-l-radius: 16px;
+$border-s-radius: 8px;
+
+$max-witdh : 1300px;
+
+:root{
+   --section-separator: 1.25rem;
+      @include from(xs) {
+         --section-separator: 1.5rem;
+      }
+      @include from(s) {
+         --section-separator: 2rem;
+      }
+      @include from(l) {
+         --section-separator: 2.5rem;
+      }
+   }
+
+   :root {
+
+      --h1-font-size    : 2.25rem;
+      --h2-font-size    : 1.75rem;
+      --item-l-font-size: 1.25rem;
+      --item-s-font-size: 1.15rem;
+      --large-font-size : 1rem;
+      --medium-font-size: 0.750rem;
+      --small-font-size : 0.650rem;
+
+
+   @include from(s) {
+      --h1-font-size    : 3rem;
+      --h2-font-size    : 2.25rem;
+      --item-l-font-size: 1.5rem;
+      --item-s-font-size: 1.25rem;
+      --large-font-size : 1.10rem;
+      --medium-font-size: 0.875rem;
+      --small-font-size : 0.750rem;
+   }
+
+   @include from(l) {
+      --h1-font-size    : 4rem;
+      --h2-font-size    : 2.5rem;
+      --item-l-font-size: 1.75rem;
+      --item-s-font-size: 1.5rem;
+      --large-font-size : 1.25rem;
+      --medium-font-size: 1rem;
+      --small-font-size : 0.875rem;
+   }
+}
