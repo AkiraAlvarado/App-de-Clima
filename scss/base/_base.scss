@@ -28,12 +28,18 @@ img {
 h1 {
    font-size: var(--h1-font-size);
    font-family: "Lora", serif;
-   font-weight: 700;
+   font-weight: 300;
 }
 
 h2 {
    font-size: var(--h2-font-size);
    font-family: "Lora", serif;
+   padding-bottom: 2rem;
+   text-align: center;
+   @include from(s) {
+      padding: 1.5rem;
+      text-align: left;
+   }
 }
 
 h1,

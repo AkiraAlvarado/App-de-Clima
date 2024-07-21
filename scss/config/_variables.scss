@@ -25,10 +25,10 @@ $max-witdh : 1300px;
          --section-separator: 1.5rem;
       }
       @include from(s) {
-         --section-separator: 2rem;
+         --section-separator: 1rem;
       }
       @include from(l) {
-         --section-separator: 2.5rem;
+         --section-separator: 1rem;
       }
    }
 
