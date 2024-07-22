@@ -3,19 +3,27 @@ const input = document.getElementById("city-input")
 
 const obtenerResultados = async (city) => {
   const apiKey = '088eee181164c5751c6967dbabfb2029'
-  const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-
+  const urlApiWeather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+  const urlApiPronostic = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
   try {
-    const results = await fetch(urlApi)
-    const datos = await results.json();
-    console.log(datos);  // Verificar los datos recibidos
+    const resultsWeather = await fetch(urlApiWeather)
+    const datosWeather = await resultsWeather.json();
+    console.log(datosWeather);  // Verificar los datos recibidos
+
+    const resultsPronostic = await fetch(urlApiPronostic)
+    const datosPronostic = await resultsPronostic.json();
+    console.log(datosPronostic);
+
     console.log("ciudad encontrada1")
 
-    showWeather(datos)
+    showWeather(datosWeather)
+    showPronostic(datosPronostic)
+
+
     console.log("ciudad encontrada2")
   } catch {
 
-    console.log("Ciudad no encontrada")
+    alert("Ingrese una ciudad correcta")
   }
 }
 
@@ -29,18 +37,17 @@ const celsius = dato => {
 }
 
 const convertirTimestamp = timestamp => {
-  // Crear un objeto Date a partir del timestamp Unix
-  const fecha = new Date(timestamp * 1000); // El timestamp Unix está en segundos, Date requiere milisegundos
+  const fecha = new Date((timestamp + 3600 * 2) * 1000); // Ajuste de 2 horas hacia adelante en segundos
 
   // Arrays para nombres de días y meses en español
   const dias = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
   const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
-  // Obtener el día de la semana, día del mes, mes y año
-  const diaSemana = dias[fecha.getDay()]; // getDay() devuelve el índice del día de la semana (0-6)
-  const dia = fecha.getDate(); // Día del mes (1-31)
-  const mes = meses[fecha.getMonth()]; // getMonth() devuelve el índice del mes (0-11)
-  const anio = fecha.getFullYear(); // Año (4 dígitos)
+  // Obtener el día de la semana, día del mes, mes y año en UTC
+  const diaSemana = dias[fecha.getUTCDay()];
+  const dia = fecha.getUTCDate();
+  const mes = meses[fecha.getUTCMonth()];
+  const anio = fecha.getUTCFullYear();
 
   // Formatear el texto
   return `${diaSemana} ${dia}, ${mes} ${anio}`;
@@ -66,8 +73,8 @@ const showWeather = objJson => {
   const date = document.getElementById("main-date")
   const weatherImage = document.getElementById("weather-image")
   const weatherDescription = document.getElementById("weather__description")
-  const mainHumidity = document.querySelector(".humidity")
-  const mainPressure = document.querySelector(".pressure")
+  const mainHumidity = document.querySelector(".humidity_main")
+  const mainPressure = document.querySelector(".pressure_main")
   const mainWindspeed = document.querySelector(".wind-speed")
   const mainClouds = document.querySelector(".clouds")
   const mainVisibility = document.querySelector(".visibility")
@@ -76,6 +83,7 @@ const showWeather = objJson => {
 
   const fechaFormateada = convertirTimestamp(dt);
   const temp1 = celsius(temp)
+
   medidaTemp.textContent = ""
   medidaTemp.textContent = `${temp1}°C`
 
@@ -104,5 +112,59 @@ const showWeather = objJson => {
 
   mainVisibility.textContent = ""
   mainVisibility.textContent = `${(visibility) / 100}km`
+}
+
+const showPronostic = data => {
+  // Toma los primeros 5 elementos y los transforma
+  const objJson = data.list.slice(0, 5).map(entry => {
+    // Desestructura los datos de cada entrada
+    const {
+      dt,
+      main: { temp, humidity },
+      clouds: { all: clouds },
+      weather: [{ description, icon }]
+    } = entry;
+
+    // Retorna un nuevo objeto con solo las propiedades deseadas
+    return { dt, temp, humidity, clouds, description, icon };
+  });
+
+  const dates = document.querySelectorAll(".date")
+  const icons = document.querySelectorAll(".card-weather__image")
+  const descriptions = document.querySelectorAll(".card-weather__weather")
+  const temperatures = document.querySelectorAll(".temperature")
+  const humiditys = document.querySelectorAll(".humidity")
+  console.log(humiditys)
+  const nubosity = document.querySelectorAll(".Nubosity")
+
+  objJson.forEach((element, i) => {
+    if (dates[i] && icons[i] && descriptions[i] && temperatures[i] && humiditys[i] && nubosity[i]) {
+      console.log(element.dt)
+      const fechaFormateada = convertirTimestamp(element.dt);
+      console.log(fechaFormateada)
+
+      temp1 = celsius(element.temp)
+
+      dates[i].textContent = ""
+      dates[i].textContent = fechaFormateada
+
+      icons[i].src = `https://openweathermap.org/img/wn/${element.icon}@2x.png`
+
+      descriptions[i].textContent = ""
+      descriptions[i].textContent = `${element.description}`
+
+      temperatures[i].textContent = ""
+      temperatures[i].textContent = `${temp1}°C`
+
+      humiditys[i].textContent = ""
+      humiditys[i].textContent = `${element.humidity}%`
+
+      nubosity[i].textContent = ""
+      nubosity[i].textContent = `${element.clouds}%`
+    } else {
+      console.log("Hubo un error con las etiquetas")
+    }
+
+  });
 }
 
