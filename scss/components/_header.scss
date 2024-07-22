@@ -1,0 +1,63 @@
+header{
+   background-color: var(--blue-600);
+}
+.header{
+   height: 8rem;
+   max-width: 1600px;
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   flex-direction: column;
+   @include from(s) {  
+      flex-direction: row;
+      height: 5rem;
+      justify-content: space-between;
+
+    }
+   
+}
+
+#city-input::placeholder {
+   color: var(--gray-400);
+   font-size: var(--large-font-size);
+   opacity: 0.5; 
+}
+.logo{
+   font-size: var(--item-s-font-size);
+   color: var(--white-100);
+   font-weight: 600;
+}
+.header__container{
+   display: flex;
+   gap: 1rem;
+   padding-left: 1em;
+   padding-right: 1em;
+   &__input{
+      padding-left: 0.5em;
+      border: 1px solid var(--gray-400);
+      border-radius: $border-b-radius;
+      font-size: var(--large-font-size);
+      @include from(s) {
+         padding-left: 1.15em;
+      }
+   }
+   &__input:focus{
+      outline: none;
+      border: 2px solid var(--gray-400);
+   }
+   &__button{
+      border: none;
+      font-size: var(--large-font-size);
+      background-color: var(--gray-800);
+      color: var(--white-100);
+      padding: 0.75em 2em;
+      border-radius: $border-b-radius;
+   }
+   &__button:hover{
+      cursor: pointer;
+   }
+   &__button:active{
+      background-color: rgb(51, 51, 51);
+   }
+}

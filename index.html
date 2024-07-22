@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <title>Wheater app</title>
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <header>
+      <div class="header center__item">
+         <div>
+            <p class="logo">Wheater APP</p>
+         </div>
+         <div>
+            <form class="header__container">
+               <input class="header__container__input" type="text" placeholder="Agregue una ciudad" id="city-input">
+               <input type="submit" class="header__container__button" id="obtain-results" value="buscar">
+            </form>
+         </div>
+      </div>
+   </header>
+   <main>
+      <section class="l-container secction__separator main-wheater">
+         <h2>Clima actual</h2>
+         <div class="weather-container">
+
+               <div class="weather-container__main">
+                  <div class="weather-container__information">
+                     <div class="flex2">
+                        <i class="icon fa-solid fa-temperature-three-quarters"></i>
+                        <h1 id="main-temp">__°C</h1>
+                     </div>
+                     <div class="flex2">
+                        <i class="icon2 fa-solid fa-location-dot"></i>
+                        <p id="main-city">_____ _______</p>
+                     </div>
+                     <div class="flex2">
+                        <i class="icon2 fa-solid fa-calendar"></i>
+                        <p id="main-date">____ __, _____</p>
+                     </div>
+                  </div>
+                  <div class="weather-container__result">
+                     <img class="weather-container__image" alt="" id="weather-image">
+                     <p class="weather-container__description" id="weather__description">_________ </p>
+                  </div>
+               </div>
+               <div class="weather-container__details">
+                  <div class="details-container">
+                     <p>Humedad</p>
+                     <div class="details-container__information">
+                        <i class="fa-solid fa-droplet"></i>
+                        <p class="humidity">__%</p>
+                     </div>
+                  </div>
+                  <div class="details-container">
+                     <p>Presión</p>
+                     <div class="details-container__information">
+                        <i class="fa-solid fa-compass"></i>
+                        <p class="pressure">__pha</p>
+                     </div>
+                  </div>
+                  <div class="details-container">
+                     <p>Vel. de viento</p>
+                     <div class="details-container__information">
+                        <i class="fa-solid fa-wind"></i>
+                        <p class="wind-speed">__m/s</p>
+                     </div>
+                  </div>
+                  <div class="details-container">
+                     <p>Nubosidad</p>
+                     <div class="details-container__information">
+                        <i class="fa-solid fa-cloud"></i>
+                        <p class="clouds">__%</p>
+                     </div>
+                  </div>
+                  <div class="details-container">
+                     <p>Visibilidad</p>
+                     <div class="details-container__information">
+                        <i class="fa-solid fa-eye"></i>
+                        <p class="visibility">__km</p>
+                     </div>
+                  </div>
+
+               </div>
+   
+         </div>
+      </section>
+      <section class="l-container2 secction__separator main-wheater">
+         <h2> Pronostico 5 días</h2>
+         <div class="card-container">
+            <div class="card-weather">
+               <p>Lunes 1, Setiembre</p>
+               <img class="card-weather__image" src="image/image.png" alt="">
+               <p class="card-weather__weather">Moderate rain</p>
+               <div class="card-weather__information">
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-temperature-three-quarters"></i>
+                        <p>Temperatura</p>
+                     </div>
+                     <p>__°C</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-droplet"></i>
+                        <p>Humedad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-cloud"></i>
+                        <p>Nubosidad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+               </div>
+            </div>
+            <div class="card-weather">
+               <p>Lunes 1, Setiembre</p>
+               <img class="card-weather__image" src="image/image.png" alt="">
+               <p class="card-weather__weather">Moderate rain</p>
+               <div class="card-weather__information">
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-temperature-three-quarters"></i>
+                        <p>Temperatura</p>
+                     </div>
+                     <p>__°C</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-droplet"></i>
+                        <p>Humedad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-cloud"></i>
+                        <p>Nubosidad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+               </div>
+            </div>
+            <div class="card-weather">
+               <p>Lunes 1, Setiembre</p>
+               <img class="card-weather__image" src="image/image.png" alt="">
+               <p class="card-weather__weather">Moderate rain</p>
+               <div class="card-weather__information">
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-temperature-three-quarters"></i>
+                        <p>Temperatura</p>
+                     </div>
+                     <p>__°C</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-droplet"></i>
+                        <p>Humedad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-cloud"></i>
+                        <p>Nubosidad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+               </div>
+            </div>
+            <div class="card-weather">
+               <p>Lunes 1, Setiembre</p>
+               <img class="card-weather__image" src="image/image.png" alt="">
+               <p class="card-weather__weather">Moderate rain</p>
+               <div class="card-weather__information">
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-temperature-three-quarters"></i>
+                        <p>Temperatura</p>
+                     </div>
+                     <p>__°C</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-droplet"></i>
+                        <p>Humedad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-cloud"></i>
+                        <p>Nubosidad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+               </div>
+            </div>
+            <div class="card-weather">
+               <p>Lunes 1, Setiembre</p>
+               <img class="card-weather__image" src="image/image.png" alt="">
+               <p class="card-weather__weather">Moderate rain</p>
+               <div class="card-weather__information">
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-temperature-three-quarters"></i>
+                        <p>Temperatura</p>
+                     </div>
+                     <p>__°C</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-droplet"></i>
+                        <p>Humedad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+                  <div class="card-weather__details">
+                     <div class="flex">
+                        <i class="fa-solid fa-cloud"></i>
+                        <p>Nubosidad</p>
+                     </div>
+                     <p>__%</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+      </section>
+   </main>
+   <script src="index.js"></script>
+</body>
+</html>
