@@ -1,0 +1,50 @@
+.card-container{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 1em;
+   color: var(--white-100);
+   @include from(l) {
+      grid-template-columns: repeat(5, 1fr);
+   }
+}
+
+.card-weather{
+   width: 100%;
+   background-color: var(--gray-800);
+   text-align: center;
+   gap: 2em;
+   border-radius: $border-l-radius;
+   
+   &__information{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      padding: 1em;
+      
+   }
+   &__details{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+   &>p:first-child{
+      padding: 1em;
+      color: var(--gray-400);
+   }
+   &__weather{
+      font-size: var(--large-font-size);
+      color: var(--white-100);
+      padding: 1em;
+   }
+   &__image{
+      padding: 0 1em;
+      width: 125px;
+      height: 125px;
+         @include from(s) {
+            width: 200px;
+            height: 200px;
+         }
+   }
+   
+}
+

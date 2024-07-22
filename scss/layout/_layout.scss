@@ -9,6 +9,18 @@
    height        : 100%;
 }
 
+.l-container2{
+   max-width     : 1600px;
+   padding-left  : 1rem;
+   padding-right : 1rem;
+   display       : flex;
+   flex-direction: column;
+   margin-left   : auto;
+   margin-right  : auto;
+   height        : 100%;
+}
+
+
 .center__content {
    text-align: center;
 }
@@ -30,5 +42,15 @@
 .flex{
    display: flex;
    align-items: center;
+   gap: 0.5em;
+   @include from(s) {
+      gap: 1em;
+   }
+}
+
+.flex2{
+   display: flex;
+   align-items: center;
    gap: 1em;
 }
+
